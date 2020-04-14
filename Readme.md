@@ -1,4 +1,4 @@
-Vue PWA Gradient Swatch Generator
+Vue PWA Gradient Swatch Builder
 
 ## Introduction
 
@@ -6,9 +6,7 @@ Linear Gradient Swatch Generator with Bootstrap, Bootstrap Vue, Sass
 
 ## Demo
 
-https://gallant-shaw-da1d58.netlify.com/
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/761188fe-0cc9-4ab9-8803-691d4b9555c7/deploy-status)](https://app.netlify.com/sites/gallant-shaw-da1d58/deploys)
+http://spiky-day.surge.sh/
 
 ## Repo
 

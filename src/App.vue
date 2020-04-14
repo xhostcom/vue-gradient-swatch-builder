@@ -42,11 +42,17 @@
    <template v-slot:lead>
     Linear Gradient Swatch Generator, Select Two Color Values and Publish.<br />
     Select Individual Swatch to Edit or Delete.
-   </template>
+ </template>
 <div class="container-fluid bg-3 text-center">
-  <h3>Your Gradients</h3><br>
+<h3>Your Gradients</h3><br>
 <div class="row gallery">
- <div v-for="item in items" class="col-md-3 swatch" :key="item.id" :style="{ backgroundImage: 'linear-gradient('+item.color1 +','+item.color2 +')'}">
+<div v-for="item in items" :key="item.id" class="col-md-3 swatch">
+<div :style="{ backgroundImage: 'linear-gradient('+item.color1 +','+item.color2 +')'}" class="bg-gradient">
+</div>
+<div id="info">
+<h5>{{ item.name }}</h5>
+<p>{{ item.color1 }} {{ item.color2}}</p>
+</div>
 </div>
 </div>
 </div>
@@ -110,9 +116,9 @@ export default {
     },
     addSwatch () {
        const swatch = this.newSwatch()
-       //if (this.isUnique(swatch)) {
+       if (this.isUnique(swatch)) {
        this.items.push(swatch);
-      // }
+       }
        console.log(swatch.color1);
        console.log(swatch.color2);
        console.log(swatch.name);
@@ -123,7 +129,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Shrikhand&display=swap');
 @font-face {
-  font-family: '';
+  font-family: 'Shrikhand';
   src: url('https://fonts.googleapis.com/css?family=Shrikhand&display=swap');
   font-weight: normal;
   font-style: normal;
@@ -174,7 +180,7 @@ footer {
       font-family: 'Shrikhand', cursive;
       font-size:52px;
     }
-    .swatch {
+    .bg-gradient {
     display:inline-block;
     margin:10px;
     height: 180px;;
