@@ -108,9 +108,9 @@ export default {
     colorString (swatch) {
        return swatch.color1 + swatch.color2
     },
-    nameString(swatch) {
-      return swatch.name
-    },
+    //nameString(swatch) {
+      //return swatch.name
+   // },
     isUnique (swatch) {
        return !this.gradientStrings.includes(this.colorString(swatch))
     },
@@ -121,7 +121,7 @@ export default {
        }
        console.log(swatch.color1);
        console.log(swatch.color2);
-       console.log(swatch.name);
+       //console.log(swatch.name);
     }
   }
 }
