@@ -117,11 +117,15 @@ export default {
     addSwatch () {
        const swatch = this.newSwatch()
        if (this.isUnique(swatch)) {
-       this.items.push(swatch);
+       this.items.push({
+       id : new Date().valueOf(),
+       color1 : this.value1,
+       color2 : this.value2
+       })
        }
+       console.log(swatch.id);
        console.log(swatch.color1);
        console.log(swatch.color2);
-       //console.log(swatch.name);
     }
   }
 }
