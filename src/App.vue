@@ -14,8 +14,8 @@
     <h3 class="page-subtitle">Pick the Color Range and Publish Swatch</h3>
     <br />
  <div class="mx-auto" width="100px">
- <b-form-input width="100px" type="color" v-model="value1" ref="value1" id="colorone"></b-form-input>
- <b-form-input width="100px" type="color" v-model="value2" ref="value2" id="colortwo"></b-form-input>
+ <input width="100px" type="color" ref="newColor1">
+ <input width="100px" type="color" ref="newColor2">
 </div>
 <br />
     <div class="btn-group">
@@ -67,22 +67,17 @@ export default {
   components: {
     Footer
  },
-  data: () => ({
-    // color1: null,
-    // color2: null,
-    // name: null,
+   data: () => ({
     items : [
       {
       id : 1,
-      color1 : '#1be7d1',
-      color2 : '#141dbe',
-      name: 'Mystic Blue'
+      color1 : 'blue',
+      color2 : 'red'
       },
       {
       id : 2,
-      color1 : '#e91ab0',
-      color2 : '#be147b',
-      name: 'Fancypants Pink'
+      color1 : 'red',
+      color2 : 'white'
       }
     ]
   }),
@@ -93,39 +88,25 @@ export default {
   },
   methods : {
     newSwatch () {
-      this.$emit('input', {
-      color1: +this.value1,
-      color2: +this.value2,
-      name: +this.value3
-      });
       return {
          id : this.items.length + 1,
-         color1 : this.value1,
-         color2 : this.value2,
-         name: this.value3
-      }
+         color1 : this.$refs.newColor1.value,
+         color2 : this.$refs.newColor2.value
+       }
     },
     colorString (swatch) {
        return swatch.color1 + swatch.color2
     },
-    //nameString(swatch) {
-      //return swatch.name
-   // },
     isUnique (swatch) {
        return !this.gradientStrings.includes(this.colorString(swatch))
     },
-    addSwatch () {
+   addSwatch () {
        const swatch = this.newSwatch()
-       if (this.isUnique(swatch)) {
-       this.items.push({
+       if (this.isUnique(swatch)) this.items.push({
        id : new Date().valueOf(),
-       color1 : this.value1,
-       color2 : this.value2
+       color1 : this.color1,
+       color2 : this.color2
        })
-       }
-       console.log(swatch.id);
-       console.log(swatch.color1);
-       console.log(swatch.color2);
     }
   }
 }
